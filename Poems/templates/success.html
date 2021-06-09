@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+        </script>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <title>Profile</title>
+        <div class="navbar">
+            <div>
+                <a href="/about">About</a>
+                <a href="/writings">Writings</a>
+            </div>
+            <div>
+                <a href="/success">Your Profile</a>
+                <a href="/cart">Cart</a>
+            </div>
+        </div>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="write">
+                <h1>Welcome to {{request.session.user}}'s Wall!</h1>
+                <br>
+                <h2>Write a Post:</h2>
+                <form action="/process_message" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="mess">
+                    <input type="submit" value="Post">
+                </form>
+            </div>
+            <div id="posts">
+                {% for post in wall_messages %}
+                <div class="one_post">
+                    <p class="post">{{post.message}}</p>
+                    <p class="poster">By: {{post.poster.first_name}} {{post.poster.last_name}}</p>
+                    <p>{{ post.user_likes.count }} <br>
+                        <a href="/like/{{post.id}}">Like Post</a> <a id="right" href="/destroy/{{post.id}}">Delete</a></p>
+                    <form id="right" action="/add_comment/{{post.id}}" method="POST">
+                        {% csrf_token %}
+                        Comment: <input type="text" name="comment">
+                        <input type="submit" value="submit">
+                    </form>
+                    <br>
+                    {% for comment in post.post_comments.all %}
+                        <p>{{comment.comment}} <br>
+                            poster: {{comment.poster.first_name}} {{comment.poster.last_name}} </p>
+                        <a id="right" href="/delete/{{comment.id}}">Delete</a>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            <p class="writing"> <a href="/logout">Logout</a> | <a href="/user_profile/{{request.session.id}}">Edit Profile</a> </p>
+        </div>
+    </body>
+</html>

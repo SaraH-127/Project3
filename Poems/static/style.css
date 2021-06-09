@@ -1,0 +1,185 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.center {
+    margin-left: 30em;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+div {
+    padding: 10px;
+}
+
+body {
+    background-color: floralwhite;
+}
+
+a {
+    color: mediumaquamarine;
+}
+
+a:hover {
+    color: rosybrown;
+}
+.form-control {
+    width: 60%;
+}
+
+label {
+    width: 30%;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-group > * {
+    display: inline-block;
+}
+
+.col-5 {
+    margin: 20px;
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5.5em;
+}
+
+.col-6 {
+    margin: 20px;
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 1em;
+}
+
+.writing {
+    margin: 20px;
+    width: 40%;
+    vertical-align: top;
+    margin-left: 1em;
+}
+
+#wrap {
+    margin: 0px auto;
+    font-family: sans-serif;
+    padding: 5px;
+}
+
+#posts {
+    background-color: powderblue;
+    padding: 0.1px;
+    margin: 25px;
+}
+
+.one_post {
+    background-color: lightyellow;
+    padding: 25px;
+    margin: 25px;
+    min-height: 100px;
+}
+
+.post {
+    font-size: 16pt;
+    text-align: center;
+}
+
+.poster {
+    font-size: 11pt;
+    text-align: center;
+}
+
+#write {
+    text-align: center;
+}
+
+#right {
+    float: right;
+}
+
+.table {
+    background-color: peachpuff;
+    margin: 20px;
+    width: 98%;
+    vertical-align: top;
+    margin-left: 1em;
+}
+
+.shift {
+    position: relative;
+    left: 15px;
+}
+
+.move {
+    padding: 10pt 10pt 20pt 40pt;
+    margin-top: -22px;
+    margin-bottom: -1px;
+}
+
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.container {
+    padding: 5px 20px 15px 20px;
+    border: 1 px solid lightgrey;
+    border-radius: 3px;
+    border-color: black;
+    border-style: solid;
+}
+
+.cost {
+    display: inline-flex;
+}
+
+.collage {
+    float: right;
+}
+
+.col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+}
+
+.col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+}
+
+.col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    margin-left: -35px;
+}
+
+.col-75, .col-50, .col-25 {
+    padding: 0 16px;
+}
+
+@media only screen and (max-width: 786px) {
+    body {
+        background-color: mediumaquamarine;
+    }
+    #posts {
+        background-color: aliceblue;
+    }
+    .one_post {
+        background-color: gainsboro;
+    }
+    .table {
+        background-color: lightsteelblue;
+    }
+    a {
+        color: darkblue;
+    }
+}
